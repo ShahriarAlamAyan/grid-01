@@ -1,0 +1,50 @@
+body {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Base style for the floating tiles */
+.terminal-window {
+    background-color: #1a1b26;
+    border: 1px solid #414868;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Blinking cursor effect */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: #7aa2f7;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Subtle CRT monitor lines over the screen */
+.scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.1) 50%,
+        rgba(0,0,0,0.1)
+    );
+    background-size: 100% 4px;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
