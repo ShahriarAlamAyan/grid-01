@@ -1,24 +1,33 @@
+/* Use a crisp, monospaced font for that terminal feel */
 body {
     font-family: 'JetBrains Mono', monospace;
+    background-color: #0d0f14;
+    /* This prevents the "bounce" scroll on mobile browsers */
+    overscroll-behavior: none;
 }
 
-/* Base style for the floating tiles */
+/* Tiled Window Styling */
 .terminal-window {
-    background-color: #1a1b26;
-    border: 1px solid #414868;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    background-color: rgba(26, 27, 38, 0.95); /* Slight transparency */
+    border: 1px solid #414868; /* Muted border */
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Blinking cursor effect */
+/* Glow effect when a window is active/hovered */
+.terminal-window:hover {
+    border-color: #7aa2f7;
+    box-shadow: 0 0 15px rgba(122, 162, 247, 0.2);
+}
+
+/* Blinking Terminal Cursor */
 .cursor {
     display: inline-block;
-    width: 8px;
-    height: 16px;
+    width: 7px;
+    height: 14px;
     background-color: #7aa2f7;
     animation: blink 1s step-end infinite;
-    vertical-align: middle;
 }
 
 @keyframes blink {
@@ -26,25 +35,47 @@ body {
     50% { opacity: 0; }
 }
 
-/* Subtle CRT monitor lines over the screen */
+/* The Scanline Effect: Made subtler for mobile */
 .scanline {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0),
-        rgba(255,255,255,0) 50%,
-        rgba(0,0,0,0.1) 50%,
-        rgba(0,0,0,0.1)
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.05) 50%,
+        rgba(0, 0, 0, 0.05)
     );
     background-size: 100% 4px;
-    animation: scroll 10s linear infinite;
+    z-index: 100;
+    pointer-events: none;
 }
 
-@keyframes scroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100%; }
+/* CRT Screen Flicker */
+@keyframes flicker {
+    0% { opacity: 0.98; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.99; }
+    15% { opacity: 0.94; }
+    20% { opacity: 0.98; }
+    100% { opacity: 1; }
+}
+
+main {
+    animation: flicker 0.15s infinite;
+}
+
+/* Custom Scrollbar for the Grid */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: #0d0f14;
+}
+::-webkit-scrollbar-thumb {
+    background: #414868;
+    border-radius: 10px;
 }

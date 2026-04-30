@@ -8,72 +8,68 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="p-4 overflow-hidden h-screen bg-[#0d0f14] text-[#a9b1d6]">
+<body class="p-2 md:p-4 overflow-hidden h-screen bg-[#0d0f14] text-[#a9b1d6]">
     <div class="scanline pointer-events-none z-50"></div>
 
-    <main class="grid grid-cols-1 md:grid-cols-4 grid-rows-6 gap-4 h-full relative z-10">
+    <main class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 h-[90vh] relative z-10 overflow-y-auto">
         
-        <section id="win-clock" class="terminal-window md:col-span-2 row-span-2 p-4 flex flex-col justify-between">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-xs uppercase text-slate-500">
+        <section id="win-clock" class="terminal-window col-span-2 p-3 flex flex-col justify-between max-h-[180px]">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
                 <span>~/system/clock</span>
                 <button onclick="closeWin('win-clock')" class="hover:text-red-500">[x]</button>
             </div>
-            <div class="mt-4">
-                <h1 id="time" class="text-5xl font-bold text-cyan-400">00:00:00</h1>
-                <p id="date" class="text-md text-slate-400 mt-2">Loading...</p>
+            <div class="mt-2">
+                <h1 id="time" class="text-3xl md:text-5xl font-bold text-cyan-400">00:00:00</h1>
+                <p id="date" class="text-[10px] md:text-md text-slate-400 mt-1 uppercase">Loading...</p>
             </div>
         </section>
 
-        <section id="win-stats" class="terminal-window md:col-span-2 row-span-2 p-4">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-xs uppercase text-slate-500">
-                <span>~/system/stats</span>
+        <section id="win-stats" class="terminal-window col-span-1 p-3 max-h-[180px]">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
+                <span>~/stats</span>
                 <button onclick="closeWin('win-stats')" class="hover:text-red-500">[x]</button>
             </div>
-            <div class="space-y-3 mt-4">
-                <div class="flex justify-between font-bold">
-                    <span>REACTOR UPTIME:</span>
-                    <span id="uptime" class="text-green-400">00:00:00</span>
-                </div>
+            <div class="space-y-2 mt-2 text-[10px]">
                 <div class="flex justify-between">
-                    <span>NETWORK STATUS:</span>
-                    <span class="text-blue-400">ONLINE</span>
+                    <span>UP:</span>
+                    <span id="uptime" class="text-green-400">00:00</span>
                 </div>
-                <div class="mt-4 h-2 w-full bg-slate-800 rounded overflow-hidden">
-                    <div class="h-full bg-cyan-500 w-[78%]"></div>
+                <div class="h-1.5 w-full bg-slate-800 rounded overflow-hidden mt-2">
+                    <div class="h-full bg-cyan-500 animate-pulse w-[65%]"></div>
                 </div>
             </div>
         </section>
 
-        <section id="win-quote" class="terminal-window md:col-span-2 row-span-2 p-4">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-xs uppercase text-slate-500">
-                <span>~/scripts/quote.sh</span>
-                <button onclick="closeWin('win-quote')" class="hover:text-red-500">[x]</button>
-            </div>
-            <div class="mt-4">
-                <p id="quote-text" class="italic text-slate-300">"Fetching data..."</p>
-                <p id="quote-author" class="text-right text-xs text-slate-500 mt-2">- sysadmin</p>
-            </div>
-        </section>
-
-        <section id="win-market" class="terminal-window md:col-span-2 row-span-2 p-4">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-xs uppercase text-slate-500">
-                <span>~/scripts/market.sh</span>
+        <section id="win-market" class="terminal-window col-span-1 p-3 max-h-[180px]">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
+                <span>~/market</span>
                 <button onclick="closeWin('win-market')" class="hover:text-red-500">[x]</button>
             </div>
-            <div class="mt-4 space-y-2 text-sm" id="market-data">
-                <div class="flex justify-between"><span>BTC/USD</span><span class="text-green-400">$64,230.00 ▲</span></div>
-                <div class="flex justify-between"><span>ETH/USD</span><span class="text-red-400">$3,410.50 ▼</span></div>
-                <div class="flex justify-between"><span>NASDAQ</span><span class="text-green-400">16,253.96 ▲</span></div>
+            <div id="market-data" class="mt-2 space-y-1 text-[9px]">
+                <div class="flex justify-between"><span>BTC</span><span class="text-green-400">▲</span></div>
+                <div class="flex justify-between"><span>ETH</span><span class="text-red-400">▼</span></div>
             </div>
         </section>
 
-        <footer class="md:col-span-4 row-span-1 terminal-window p-3 flex items-center gap-2 text-sm mt-auto mb-2">
-            <span class="text-green-400">guest@grid-01:~$</span>
-            <span class="text-slate-300">./start_vibe.sh</span>
-            <span class="cursor"></span>
-        </footer>
+        <section id="win-quote" class="terminal-window col-span-2 p-3 max-h-[150px]">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
+                <span>~/quote.sh</span>
+                <button onclick="closeWin('win-quote')" class="hover:text-red-500">[x]</button>
+            </div>
+            <div class="mt-2">
+                <p id="quote-text" class="italic text-[11px] text-slate-300 leading-tight">"Fetching..."</p>
+                <p id="quote-author" class="text-right text-[9px] text-slate-500 mt-1">- sys</p>
+            </div>
+        </section>
 
     </main>
+
+    <footer class="fixed bottom-2 left-2 right-2 terminal-window p-2 flex items-center gap-2 text-[11px]">
+        <span class="text-green-400">guest@grid-01:~$</span>
+        <span id="terminal-input" class="text-slate-300 tracking-wider">./start_vibe.sh</span>
+        <span class="cursor"></span>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
