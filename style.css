@@ -8,8 +8,8 @@ body {
 
 /* Tiled Window Styling */
 .terminal-window {
-    background-color: rgba(26, 27, 38, 0.95); /* Slight transparency */
-    border: 1px solid #414868; /* Muted border */
+    background-color: rgba(15, 17, 26, 0.98);/* Slight transparency */
+    border: 1px solid #7aa2f7; /* Muted border */
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -53,6 +53,11 @@ body {
     z-index: 100;
     pointer-events: none;
 }
+
+#time { color: #7adff7; text-shadow: 0 0 8px rgba(122, 223, 247, 0.5); }
+#date { color: #9ab1d6; }
+span, p { color: #a9b1d6; }
+
 
 /* CRT Screen Flicker */
 @keyframes flicker {
