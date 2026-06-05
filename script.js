@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         timeEl.innerText = now.toLocaleTimeString('en-US', { 
             hour: '2-digit', 
             minute: '2-digit', 
-            second: '2-digit' 
+            second: '2-digit',
+            hour12: false
         });
         
         const options = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
@@ -80,4 +81,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     loadNewQuote();
 });
-
