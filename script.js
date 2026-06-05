@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // 2. Real-time Clock & Date
-    const timeEl = document.getElementById('time');
-    const dateEl = document.getElementById('date');
-    
     function updateClock() {
+        const timeEl = document.getElementById('time');
+        const dateEl = document.getElementById('date');
+        
         if (!timeEl || !dateEl) return;
         const now = new Date();
         
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateClock();
 
     // 3. System Uptime Tracker
-    const uptimeEl = document.getElementById('uptime');
     const startTime = Date.now();
 
     function updateUptime() {
+        const uptimeEl = document.getElementById('uptime');
         if (!uptimeEl) return;
         const diff = Math.floor((Date.now() - startTime) / 1000);
         
@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { t: "The grid. A digital frontier.", a: "Flynn" }
     ];
 
-    const qText = document.getElementById('quote-text');
-    const qAuth = document.getElementById('quote-author');
-
     function loadNewQuote() {
+        const qText = document.getElementById('quote-text');
+        const qAuth = document.getElementById('quote-author');
+        
         if (qText && qAuth) {
             const random = quotes[Math.floor(Math.random() * quotes.length)];
             qText.innerText = `"${random.t}"`;
