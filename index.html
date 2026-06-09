@@ -3,73 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>grid-01 | Terminal Rice</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ayan | JavaScript Journey & Portfolio</title>
+    <!-- Linking our external stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="p-2 md:p-4 overflow-hidden h-screen bg-[#0d0f14] text-[#a9b1d6]">
-    <div class="scanline pointer-events-none z-50"></div>
+<body>
 
-    <main class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 h-[90vh] relative z-10 overflow-y-auto">
-        
-        <section id="win-clock" class="terminal-window col-span-2 p-3 flex flex-col justify-between max-h-[180px]">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
-                <span>~/system/clock</span>
-                <button onclick="closeWin('win-clock')" class="hover:text-red-500">[x]</button>
-            </div>
-            <div class="mt-2">
-                <h1 id="time" class="text-3xl md:text-5xl font-bold text-cyan-400">00:00:00</h1>
-                <p id="date" class="text-[10px] md:text-md text-slate-400 mt-1 uppercase">Loading...</p>
-            </div>
+    <header>
+        <h1>System Architecture</h1>
+        <p>Documenting the evolution of core JavaScript principles.</p>
+    </header>
+
+    <main id="app-container">
+        <!-- JavaScript will dynamically inject our learning logs and modules here -->
+        <section id="welcome-module">
+            <h2>Initialization...</h2>
+            <p id="system-status">Waiting for core engine push.</p>
         </section>
-
-        <section id="win-stats" class="terminal-window col-span-1 p-3 max-h-[180px]">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
-                <span>~/stats</span>
-                <button onclick="closeWin('win-stats')" class="hover:text-red-500">[x]</button>
-            </div>
-            <div class="space-y-2 mt-2 text-[10px]">
-                <div class="flex justify-between">
-                    <span>UP:</span>
-                    <span id="uptime" class="text-green-400">00:00</span>
-                </div>
-                <div class="h-1.5 w-full bg-slate-800 rounded overflow-hidden mt-2">
-                    <div class="h-full bg-cyan-500 animate-pulse w-[65%]"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="win-market" class="terminal-window col-span-1 p-3 max-h-[180px]">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
-                <span>~/market</span>
-                <button onclick="closeWin('win-market')" class="hover:text-red-500">[x]</button>
-            </div>
-            <div id="market-data" class="mt-2 space-y-1 text-[9px]">
-                <div class="flex justify-between"><span>BTC</span><span class="text-green-400">▲</span></div>
-                <div class="flex justify-between"><span>ETH</span><span class="text-red-400">▼</span></div>
-            </div>
-        </section>
-
-        <section id="win-quote" class="terminal-window col-span-2 p-3 max-h-[150px]">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1 text-[10px] uppercase text-slate-500">
-                <span>~/quote.sh</span>
-                <button onclick="closeWin('win-quote')" class="hover:text-red-500">[x]</button>
-            </div>
-            <div class="mt-2">
-                <p id="quote-text" class="italic text-[11px] text-slate-300 leading-tight">"Fetching..."</p>
-                <p id="quote-author" class="text-right text-[9px] text-slate-500 mt-1">- sys</p>
-            </div>
-        </section>
-
     </main>
 
-    <footer class="fixed bottom-2 left-2 right-2 terminal-window p-2 flex items-center gap-2 text-[11px]">
-        <span class="text-green-400">guest@grid-01:~$</span>
-        <span id="terminal-input" class="text-slate-300 tracking-wider">./start_vibe.sh</span>
-        <span class="cursor"></span>
+    <footer>
+        <p>&copy; 2026 Ayan. Driven by Termux & Vim.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Linking our external JavaScript engine at the bottom for optimized loading -->
+    <script src="app.js"></script>
 </body>
 </html>
+
