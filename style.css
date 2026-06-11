@@ -1,0 +1,78 @@
+/* ====================================================================
+   CORE TERMINAL ARCHITECTURE RESET & VARIABLES
+   ==================================================================== */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #0d0e11;
+    --terminal-green: #33ff33;
+    --text-muted: #888888;
+    --border-color: #223322;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+#console-header {
+    border-bottom: 2px dashed var(--terminal-green);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+#console-header h1 {
+    color: var(--terminal-green);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+.channel-matrix {
+    margin-top: 15px;
+    padding-left: 10px;
+}
+
+.link-row {
+    margin: 12px 0;
+    font-size: 0.95rem;
+}
+
+.cmd-prompt {
+    color: var(--terminal-green);
+    font-weight: bold;
+}
+
+.terminal-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 8px;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.2s ease;
+}
+
+/* Hover matrix to give it tactile feedback */
+.terminal-link:hover {
+    color: var(--terminal-green);
+    border-bottom: 1px dashed var(--terminal-green);
+    text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
+}
+
