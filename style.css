@@ -11,8 +11,7 @@
 
 :root {
     --bg-color: #0d0e11;
-   /* --terminal-green: #33ff33;*/
-    --terminal-green: red;
+    --terminal-green: #33ff33;
     --text-muted: #888888;
     --border-color: #223322;
 }
@@ -20,11 +19,13 @@
 body {
     background-color: var(--bg-color);
 	
-    color: red;
-    /*color: #ffffff;*/
+    color: #ffffff;
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
     line-height: 1.6;
+
+
+    overflow-x: hidden;
 }
 
 #console-header {
@@ -70,6 +71,10 @@ body {
     margin-left: 8px;
     border-bottom: 1px dashed transparent;
     transition: all 0.2s ease;
+
+
+    word-break: break-all;
+  
 }
 
 /* Hover matrix to give it tactile feedback */
@@ -89,20 +94,23 @@ body {
 
 /* Responsive grid layout that collapses on small screens */
 .vault-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    width: 100%;
     margin-top: 20px;
 }
 
 /* The frame mimicking a classic terminal diagnostic card */
 .asset-card {
+    break-inside: avoid; /* Prevents the card from tearing in half across columns */
     background-color: #0b0f12;
     border: 1px solid #222d32;
     border-radius: 4px;
     overflow: hidden;
+    margin-bottom: 20px; /* Provides the spacing below each card in the column */
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 
 /* Header strip to show the filename */
 .asset-header {
@@ -122,21 +130,21 @@ body {
 
 /* Image containment with retro-dimming matrix overlay effect */
 .img-wrapper {
-    position: relative;
     width: 100%;
-    height: 220px;
+    height: auto; /* REMOVED 220px: allows the frame to scale naturally */
     background-color: #000000;
-    overflow: hidden;
 }
 
 .img-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* CHANGED FROM 100%: preserves original aspect ratio */
+    display: block;
     filter: grayscale(20%) contrast(110%);
     opacity: 0.85;
     transition: all 0.3s ease;
 }
+
+
 
 /* Meta tags data read-out footer */
 .asset-meta {
@@ -163,4 +171,7 @@ body {
     }
     
 
+
+
+    /*_----_-----_----*/
 
