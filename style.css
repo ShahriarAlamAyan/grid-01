@@ -94,10 +94,10 @@ body {
 
 /* Responsive grid layout that collapses on small screens */
 .vault-grid {
-    column-count: 2;
+    column-width: 280px;
     column-gap: 20px;
     width: 100%;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
 }
 
 /* The frame mimicking a classic terminal diagnostic card */
